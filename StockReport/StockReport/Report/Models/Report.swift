@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Report {
+struct Report: Hashable {
     
-    let data: String
+    let date: String
     let stock: String
     let ticker: String
     let title: String

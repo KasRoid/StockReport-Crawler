@@ -21,7 +21,7 @@ struct CSVReader {
                 .map{
                     let list = $0
                         .components(separatedBy: ",")
-                        .map { String($0.filter { !" \n\t\r".contains($0) }) }
+                        .map { String($0.filter { !"\n\t\r".contains($0) }) }
                     return list
                 }
 
