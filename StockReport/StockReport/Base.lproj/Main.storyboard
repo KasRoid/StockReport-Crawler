@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wMl-Np-6DI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xyx-bj-Owl">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News-->
+        <!--국민증권-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StockReport" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ReportViewController" customModule="StockReport" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                             <constraint firstItem="Sol-UD-caM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pV1-jX-lFw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="News" id="Icd-sA-tCK"/>
+                    <navigationItem key="navigationItem" title="국민증권" id="Icd-sA-tCK"/>
                     <connections>
                         <outlet property="tableView" destination="Sol-UD-caM" id="nsM-dW-Zfz"/>
                     </connections>
@@ -42,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="131" y="1435"/>
         </scene>
-        <!--Assets-->
+        <!--자산-->
         <scene sceneID="fO9-Ft-L6n">
             <objects>
                 <viewController id="eCK-A0-jID" sceneMemberID="viewController">
@@ -52,13 +52,13 @@
                         <viewLayoutGuide key="safeArea" id="6H0-xo-QkC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Assets" image="eyeglasses" catalog="system" id="bGn-8K-yVy"/>
+                    <tabBarItem key="tabBarItem" title="자산" image="eyeglasses" catalog="system" id="bGn-8K-yVy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBG-aG-x9a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1054" y="706"/>
         </scene>
-        <!--Info-->
+        <!--내 정보-->
         <scene sceneID="QlA-3X-Blc">
             <objects>
                 <viewController id="vA2-fh-273" sceneMemberID="viewController">
@@ -68,11 +68,65 @@
                         <viewLayoutGuide key="safeArea" id="Wtf-wr-LBU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Info" image="person.crop.circle" catalog="system" id="QZc-1D-Zrx"/>
+                    <tabBarItem key="tabBarItem" title="내 정보" image="person.crop.circle" catalog="system" id="QZc-1D-Zrx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCf-mE-WfI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1935" y="706"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="gcx-wh-ODg">
+            <objects>
+                <viewController id="xyx-bj-Owl" customClass="SplashViewController" customModule="StockReport" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MC6-MN-nuo">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyi-wc-l8C" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="76.666666666666686" y="330" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Zcr-yf-YUE"/>
+                                    <constraint firstAttribute="height" constant="128" id="kkz-wb-FJL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="78969-money"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="국민증권" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Gg-nb-TDI">
+                                <rect key="frame" x="162" y="478" width="69.333333333333314" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.1450980392" green="0.41960784309999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kmu" translatesAutoresizingMaskIntoConstraints="NO" id="MPd-3V-KJ8" userLabel="School Logo ImageView">
+                                <rect key="frame" x="76.666666666666686" y="750" width="240" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="EEt-Lz-Lri"/>
+                                    <constraint firstAttribute="width" constant="240" id="YjJ-pU-rqB"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wW6-ie-FPZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zyi-wc-l8C" firstAttribute="centerX" secondItem="MC6-MN-nuo" secondAttribute="centerX" id="0Ia-WW-fyu"/>
+                            <constraint firstItem="MPd-3V-KJ8" firstAttribute="centerX" secondItem="MC6-MN-nuo" secondAttribute="centerX" id="GJ6-DW-gJc"/>
+                            <constraint firstItem="9Gg-nb-TDI" firstAttribute="top" secondItem="zyi-wc-l8C" secondAttribute="bottom" constant="20" id="QoS-wW-A1d"/>
+                            <constraint firstItem="wW6-ie-FPZ" firstAttribute="bottom" secondItem="MPd-3V-KJ8" secondAttribute="bottom" constant="4" id="Y4Q-0n-cjd"/>
+                            <constraint firstItem="zyi-wc-l8C" firstAttribute="centerY" secondItem="MC6-MN-nuo" secondAttribute="centerY" constant="-32" id="aij-4G-79L"/>
+                            <constraint firstItem="9Gg-nb-TDI" firstAttribute="centerX" secondItem="MC6-MN-nuo" secondAttribute="centerX" id="kx9-cN-2kr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="companyLabel" destination="9Gg-nb-TDI" id="HTF-OF-oW8"/>
+                        <outlet property="lottieAnimationView" destination="zyi-wc-l8C" id="Uzp-T5-Afv"/>
+                        <segue destination="wMl-Np-6DI" kind="presentation" identifier="ReportViewController" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="a0S-8x-2bo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CHx-nb-yVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1053" y="-770"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2Te-eu-2Cy">
@@ -94,11 +148,11 @@
             </objects>
             <point key="canvasLocation" x="1055.7251908396945" y="-34.507042253521128"/>
         </scene>
-        <!--Report-->
+        <!--리포트-->
         <scene sceneID="0bq-Ut-Rqu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lOx-xw-av2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Report" image="newspaper" catalog="system" id="Swr-yb-I3t"/>
+                    <tabBarItem key="tabBarItem" title="리포트" image="newspaper" catalog="system" id="Swr-yb-I3t"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="L3r-Tg-Dmv">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -116,6 +170,7 @@
     </scenes>
     <resources>
         <image name="eyeglasses" catalog="system" width="128" height="55"/>
+        <image name="kmu" width="1181" height="590.5"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">

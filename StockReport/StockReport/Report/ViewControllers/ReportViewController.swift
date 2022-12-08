@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ReportViewController.swift
 //  StockReport
 //
 //  Created by Doyoung Song on 12/8/22.
@@ -8,7 +8,7 @@
 import Combine
 import UIKit
 
-class ViewController: UIViewController {
+class ReportViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ReportViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -39,7 +39,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController {
+extension ReportViewController {
     
     private func setupUI() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
