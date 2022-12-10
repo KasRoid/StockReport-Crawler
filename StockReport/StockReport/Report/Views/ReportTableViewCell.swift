@@ -25,7 +25,8 @@ class ReportTableViewCell: UITableViewCell {
     func configure(report: Report) {
         titleLabel.text = report.title
         stockLabel.text = report.stock
-        opinionLabel.text = report.opinion
+        opinionLabel.text = report.opinion.rawValue
+        opinionLabel.backgroundColor = report.opinion.color
         securitiesLabel.text = report.securites
         dateLabel.text = report.date
     }
@@ -35,6 +36,7 @@ class ReportTableViewCell: UITableViewCell {
 extension ReportTableViewCell {
     
     private func setupUI() {
+        selectionStyle = .none
         stockLabel.layer.cornerRadius = 4
         opinionLabel.layer.cornerRadius = 4
         stockLabel.clipsToBounds = true

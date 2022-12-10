@@ -29,7 +29,7 @@ extension ReportViewModel {
             let ticker = $0[2]
             let title = $0[3]
             let fairValue = $0[4]
-            let opinion = $0[5]
+            let opinion: Report.Opinion = $0[5] == "Buy" ? .buy : .neutral
             let author = $0[6]
             let securites = $0[7]
             let report = Report(date: date, stock: stock, ticker: ticker, title: title, fairValue: fairValue, opinion: opinion, author: author, securites: securites)
