@@ -20,6 +20,24 @@ class ReportViewController: UIViewController {
         setupUI()
         bindVM()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let reportDetailVC = segue.destination as? ReportDetailViewController,
+              let indexPath = sender as? IndexPath else { fatalError() }
+        
+        let report = viewModel.reports.value[indexPath.row]
+        let viewModel = ReportDetailViewModel(report: report)
+        reportDetailVC.configure(viewModel: viewModel)
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension ReportViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let identifier = String(describing: ReportDetailViewController.self)
+        performSegue(withIdentifier: identifier, sender: indexPath)
+    }
 }
 
 // MARK: - UITableViewDataSource

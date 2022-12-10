@@ -20,8 +20,8 @@ struct Report: Hashable {
     
     enum Opinion: String {
         
-        case buy = "Buy"
-        case neutral = "Neutral"
+        case buy = "매수"
+        case neutral = "중립"
         
         var color: UIColor {
             switch self {

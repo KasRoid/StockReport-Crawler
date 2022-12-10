@@ -13,7 +13,7 @@ class ReportTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var stockLabel: PaddingLabel!
-    @IBOutlet weak var opinionLabel: PaddingLabel!
+    @IBOutlet weak var opinionColorView: UIView!
     @IBOutlet weak var securitiesLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -25,8 +25,7 @@ class ReportTableViewCell: UITableViewCell {
     func configure(report: Report) {
         titleLabel.text = report.title
         stockLabel.text = report.stock
-        opinionLabel.text = report.opinion.rawValue
-        opinionLabel.backgroundColor = report.opinion.color
+        opinionColorView.backgroundColor = report.opinion.color
         securitiesLabel.text = report.securites
         dateLabel.text = report.date
     }
@@ -38,8 +37,8 @@ extension ReportTableViewCell {
     private func setupUI() {
         selectionStyle = .none
         stockLabel.layer.cornerRadius = 4
-        opinionLabel.layer.cornerRadius = 4
+        opinionColorView.layer.cornerRadius = 4
         stockLabel.clipsToBounds = true
-        opinionLabel.clipsToBounds = true
+        opinionColorView.clipsToBounds = true
     }
 }

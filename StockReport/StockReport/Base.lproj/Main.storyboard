@@ -21,6 +21,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="g2Y-Q9-xdb"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="wUJ-ev-Gp7"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -36,11 +37,97 @@
                     <navigationItem key="navigationItem" title="국민증권" id="Icd-sA-tCK"/>
                     <connections>
                         <outlet property="tableView" destination="Sol-UD-caM" id="nsM-dW-Zfz"/>
+                        <segue destination="vPo-a2-egH" kind="show" identifier="ReportDetailViewController" id="7e5-Am-ks1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131" y="1435"/>
+        </scene>
+        <!--Report Detail View Controller-->
+        <scene sceneID="gWe-Ft-kpG">
+            <objects>
+                <viewController storyboardIdentifier="ReportDetailViewController" id="vPo-a2-egH" customClass="ReportDetailViewController" customModule="StockReport" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ijy-Jy-DhK">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Securities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGZ-nf-ZKA">
+                                <rect key="frame" x="12" y="115" width="369" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfA-B4-DKE">
+                                <rect key="frame" x="12" y="147.33333333333334" width="369" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QUe-1w-zMw">
+                                <rect key="frame" x="12" y="230.66666666666669" width="369" height="538.33333333333326"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGJ-dg-gyd">
+                                <rect key="frame" x="12.000000000000002" y="203" width="28.666666666666671" height="15.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb9-es-E06">
+                                <rect key="frame" x="44.666666666666657" y="203" width="336.33333333333337" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRx-5P-duX" customClass="PaddingLabel" customModule="StockReport" customModuleProvider="target">
+                                <rect key="frame" x="12" y="179.33333333333334" width="33" height="15.666666666666657"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AAl-dy-1sv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AAl-dy-1sv" firstAttribute="trailing" secondItem="YRx-5P-duX" secondAttribute="trailing" priority="1" constant="12" id="06o-EH-txZ"/>
+                            <constraint firstItem="AAl-dy-1sv" firstAttribute="trailing" secondItem="QUe-1w-zMw" secondAttribute="trailing" constant="12" id="2oP-4F-M0P"/>
+                            <constraint firstItem="vGZ-nf-ZKA" firstAttribute="leading" secondItem="AAl-dy-1sv" secondAttribute="leading" constant="12" id="4Gg-ct-2hW"/>
+                            <constraint firstItem="QUe-1w-zMw" firstAttribute="top" secondItem="CGJ-dg-gyd" secondAttribute="bottom" constant="12" id="IYb-lz-9Tg"/>
+                            <constraint firstItem="AAl-dy-1sv" firstAttribute="trailing" secondItem="Rb9-es-E06" secondAttribute="trailing" constant="12" id="JQL-dm-o7S"/>
+                            <constraint firstItem="CGJ-dg-gyd" firstAttribute="leading" secondItem="vGZ-nf-ZKA" secondAttribute="leading" id="LQH-fJ-B8J"/>
+                            <constraint firstItem="AAl-dy-1sv" firstAttribute="bottom" secondItem="QUe-1w-zMw" secondAttribute="bottom" id="M9O-J5-fl5"/>
+                            <constraint firstItem="CGJ-dg-gyd" firstAttribute="top" secondItem="YRx-5P-duX" secondAttribute="bottom" constant="8" id="U9n-ba-wOr"/>
+                            <constraint firstItem="Rb9-es-E06" firstAttribute="centerY" secondItem="CGJ-dg-gyd" secondAttribute="centerY" id="XTf-86-exS"/>
+                            <constraint firstItem="vGZ-nf-ZKA" firstAttribute="top" secondItem="AAl-dy-1sv" secondAttribute="top" constant="12" id="dLH-qD-1Vx"/>
+                            <constraint firstItem="AAl-dy-1sv" firstAttribute="trailing" secondItem="nfA-B4-DKE" secondAttribute="trailing" constant="12" id="dZm-RZ-QUU"/>
+                            <constraint firstItem="AAl-dy-1sv" firstAttribute="trailing" secondItem="vGZ-nf-ZKA" secondAttribute="trailing" constant="12" id="jSu-ze-QPi"/>
+                            <constraint firstItem="nfA-B4-DKE" firstAttribute="top" secondItem="vGZ-nf-ZKA" secondAttribute="bottom" constant="12" id="mQU-8F-cIV"/>
+                            <constraint firstItem="QUe-1w-zMw" firstAttribute="leading" secondItem="AAl-dy-1sv" secondAttribute="leading" constant="12" id="oBs-SQ-L4n"/>
+                            <constraint firstItem="YRx-5P-duX" firstAttribute="leading" secondItem="vGZ-nf-ZKA" secondAttribute="leading" id="pXE-Vc-Nk0"/>
+                            <constraint firstItem="nfA-B4-DKE" firstAttribute="leading" secondItem="vGZ-nf-ZKA" secondAttribute="leading" id="qMm-Cu-c4J"/>
+                            <constraint firstItem="Rb9-es-E06" firstAttribute="leading" secondItem="CGJ-dg-gyd" secondAttribute="trailing" constant="4" id="s9n-JY-zzE"/>
+                            <constraint firstItem="YRx-5P-duX" firstAttribute="top" secondItem="nfA-B4-DKE" secondAttribute="bottom" constant="8" id="wP0-0i-dMn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Pd6-JE-fTy"/>
+                    <connections>
+                        <outlet property="authorLabel" destination="Rb9-es-E06" id="q6E-6r-0wI"/>
+                        <outlet property="contentTextView" destination="QUe-1w-zMw" id="jdO-pG-33j"/>
+                        <outlet property="dateLabel" destination="CGJ-dg-gyd" id="1a3-50-Pmp"/>
+                        <outlet property="opinionLabel" destination="YRx-5P-duX" id="hHH-U3-S5N"/>
+                        <outlet property="securitiesLabel" destination="vGZ-nf-ZKA" id="Uzl-TL-jtF"/>
+                        <outlet property="titleLabel" destination="nfA-B4-DKE" id="YDF-NE-ZSC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x4P-vs-1VG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131" y="2134"/>
         </scene>
         <!--자산-->
         <scene sceneID="fO9-Ft-L6n">
@@ -135,6 +222,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="f5o-b9-KDx"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QTY-mY-apI">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -173,8 +261,17 @@
         <image name="kmu" width="1181" height="590.5"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
