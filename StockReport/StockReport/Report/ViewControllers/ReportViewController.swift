@@ -22,15 +22,13 @@ class ReportViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension ReportViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ReportTableViewCell.identifier, for: indexPath) as? ReportTableViewCell else { fatalError() }
         let report = viewModel.reports.value[indexPath.row]
-        var configuration = cell.defaultContentConfiguration()
-        configuration.text = report.title
-        configuration.secondaryText = report.stock
-        cell.contentConfiguration = configuration
+        cell.configure(report: report)
         return cell
     }
     
@@ -39,10 +37,12 @@ extension ReportViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UI
 extension ReportViewController {
     
     private func setupUI() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        let nib = UINib(nibName: ReportTableViewCell.identifier, bundle: Bundle.main)
+        tableView.register(nib, forCellReuseIdentifier: ReportTableViewCell.identifier)
     }
     
     private func bindVM() {
