@@ -31,6 +31,10 @@ struct ReportDetailViewModel {
         return report.opinion.color
     }
     
+    var ticker: String {
+        return report.ticker
+    }
+    
     var date: String {
         return report.date + ","
     }

@@ -10,6 +10,7 @@ import UIKit
 
 class ReportViewController: UIViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     private let viewModel = ReportViewModel()
@@ -28,6 +29,13 @@ class ReportViewController: UIViewController {
         let report = viewModel.reports.value[indexPath.row]
         let viewModel = ReportDetailViewModel(report: report)
         reportDetailVC.configure(viewModel: viewModel)
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension ReportViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchText.isEmpty ? viewModel.resetReports() : viewModel.filterReports(text: searchText)
     }
 }
 
@@ -53,12 +61,19 @@ extension ReportViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.reports.value.count
     }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
 }
 
 // MARK: - UI
 extension ReportViewController {
     
     private func setupUI() {
+        searchBar.searchTextField.clearButtonMode = .whileEditing
+        searchBar.delegate = self
+        
         let nib = UINib(nibName: ReportTableViewCell.identifier, bundle: Bundle.main)
         tableView.register(nib, forCellReuseIdentifier: ReportTableViewCell.identifier)
     }

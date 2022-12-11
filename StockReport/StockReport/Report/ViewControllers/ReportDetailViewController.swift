@@ -13,6 +13,7 @@ class ReportDetailViewController: UIViewController {
     @IBOutlet weak var securitiesLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var opinionLabel: PaddingLabel!
+    @IBOutlet weak var tickerLabel: PaddingLabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var contentTextView: UITextView!
@@ -36,7 +37,9 @@ extension ReportDetailViewController {
     
     private func setupUI() {
         opinionLabel.layer.cornerRadius = 4
+        tickerLabel.layer.cornerRadius = 4
         opinionLabel.clipsToBounds = true
+        tickerLabel.clipsToBounds = true
     }
     
     private func bindUI() {
@@ -49,6 +52,7 @@ extension ReportDetailViewController {
                 self.titleLabel.text = viewModel.title
                 self.opinionLabel.text = viewModel.opinion
                 self.opinionLabel.backgroundColor = viewModel.opinionColr
+                self.tickerLabel.text = viewModel.ticker
                 self.dateLabel.text = viewModel.date
                 self.authorLabel.text = viewModel.author
             }

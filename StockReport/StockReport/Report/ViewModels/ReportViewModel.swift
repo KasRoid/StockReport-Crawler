@@ -11,15 +11,25 @@ import Foundation
 class ReportViewModel {
     
     let reports = CurrentValueSubject<[Report], Never>([])
+    private var reportsSanpshot: [Report] = []
     
     init() {
-        generateReport()
+        generateReports()
     }
 }
 
 extension ReportViewModel {
     
-    func generateReport() {
+    func filterReports(text: String) {
+        let filteredReports = reportsSanpshot.filter { $0.stock.contains(text) }
+        self.reports.send(filteredReports)
+    }
+    
+    func resetReports() {
+        self.reports.send(reportsSanpshot)
+    }
+    
+    private func generateReports() {
         let reportsData = CSVReader.read(file: "report_result")
         var reports = [Report]()
         
@@ -38,5 +48,6 @@ extension ReportViewModel {
             }
         }
         self.reports.send(reports)
+        reportsSanpshot = reports
     }
 }
