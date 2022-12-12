@@ -30,24 +30,41 @@ extension ReportViewModel {
     }
     
     private func generateReports() {
-        let reportsData = CSVReader.read(file: "report_result")
+        let reportDatum = CSVReader.read(file: "report_result")
         var reports = [Report]()
         
-        reportsData.forEach {
-            let date = $0[0]
-            let stock = $0[1]
-            let ticker = $0[2]
-            let title = $0[3]
-            let fairValue = $0[4]
-            let opinion: Report.Opinion = $0[5] == "Buy" ? .buy : .neutral
-            let author = $0[6]
-            let securites = $0[7]
-            let report = Report(date: date, stock: stock, ticker: ticker, title: title, fairValue: fairValue, opinion: opinion, author: author, securites: securites)
+        for (index, reportData) in reportDatum.enumerated() {
+            guard index <= 200 else { break }
+            let report = Report(reportData: reportData)
+            
             if !reports.contains(report) {
                 reports.append(report)
             }
         }
+        
         self.reports.send(reports)
         reportsSanpshot = reports
+        generateReportsInBackground(reportDatum: reportDatum)
+    }
+    
+    private func generateReportsInBackground(reportDatum: [[String]]) {
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            guard let self else { return }
+            var reports = [Report]()
+            
+            for index in 201 ..< reportDatum.count {
+                let reportData = reportDatum[index]
+                let report = Report(reportData: reportData)
+                
+                if !reports.contains(report) {
+                    reports.append(report)
+                }
+                guard reports.count == 50 else { continue }
+                self.reportsSanpshot += reports
+                reports.removeAll()
+            }
+            self.reportsSanpshot += reports
+            self.reports.send(self.reportsSanpshot)
+        }
     }
 }

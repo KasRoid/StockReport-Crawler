@@ -80,6 +80,7 @@ extension ReportViewController {
     
     private func bindVM() {
         viewModel.reports
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in self?.tableView.reloadData() }
             .store(in: &cancellables)
     }

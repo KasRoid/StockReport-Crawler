@@ -33,10 +33,7 @@ extension SplashViewController {
     
     private func animateLottie() {
         lottieAnimationView.play(completion: { [weak self] _ in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3,
-                                          execute: {
-                self?.performSegue(withIdentifier: "ReportViewController", sender: self)
-            })
+            self?.performSegue(withIdentifier: String(describing: ReportViewController.self), sender: self)
         })
     }
     
